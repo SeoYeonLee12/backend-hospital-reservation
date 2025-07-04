@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 // TODO : 컨트롤러에 필요한 어노테이션을 작성해주세요.
 // TODO : 요청 경로는 templates를 참고하여 작성해주세요.
@@ -39,6 +40,7 @@ public class ReservationController {
     }
 
     // TODO : 필요한 어노테이션을 작성해주세요.
+    @ResponseBody
     @PostMapping
     public String createReservation(@RequestParam Long doctorId, @RequestParam Long patientId, @RequestParam LocalDateTime reservationTime) {
         // TODO : 예약을 진행하는 코드를 작성해주세요.
@@ -48,6 +50,7 @@ public class ReservationController {
 
     // TODO : 필요한 어노테이션을 작성해주세요.
     @PostMapping("/delete/{id}")
+    @ResponseBody
     public String cancelReservation(@PathVariable Long id) {
         // TODO : 예약을 취소하는 코드를 작성해주세요.
         reservationService.cancelReservation(id);
